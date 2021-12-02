@@ -14,7 +14,6 @@ export class ModalSizeDirective {
 
   ngAfterViewInit() {
     const dialog = this.component.dialogRef.nativeElement;
-    console.log(this.dialogSize);
     if (this.sizeOptions.includes(this.dialogSize)) {
       dialog.classList.add(`modal-${this.dialogSize}`);
     }

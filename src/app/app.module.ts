@@ -12,6 +12,8 @@ import { ProjetosTabComponent } from './components/cadastro/projetos-tab/projeto
 import { ModalComponent } from './components/modal/modal.component';
 import { CloseBtnStyleDirective } from './components/modal/close-btn-style.directive';
 import { ModalSizeDirective } from './components/modal/modal-size.directive';
+import { CardComponent } from './components/card/card.component';
+import { HeaderFooterFormaterDirective } from './components/card/header-footer-formater.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { ModalSizeDirective } from './components/modal/modal-size.directive';
     ModalComponent,
     CloseBtnStyleDirective,
     ModalSizeDirective,
+    CardComponent,
+    HeaderFooterFormaterDirective,
   ],
   imports: [
     BrowserModule,

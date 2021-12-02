@@ -1,54 +1,49 @@
 <div class="tab-pane" id="itens" role="tabpanel"
   aria-labelledby="itens-tab"
 >
-  <div class="card mt-2">
-    <header class="card-header">
-      <div class="d-flex justify-content-between align-items-center">
-        <h5 class="card-title">Itens</h5>
-        <button class="btn btn-primary btn-sm"
-          data-bs-toggle="modal"
-          data-bs-target="#addItemModal"
-        >
-        <i class="bi bi-plus-lg"></i>
-        </button>
-      </div>
-    </header>
-    <div class="card-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Serviço</th>
-            <th scope="col">Quantidade</th>
-            <th scope="col">Valor unitário</th>
-            <th scope="col">Valor total</th>
-            <th scope="col">Itens</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row" class="v-align-middle">1</th>
-            <td class="v-align-middle">Serviço 1</td>
-            <td class="v-align-middle">1</td>
-            <td class="v-align-middle">10,00</td>
-            <td class="v-align-middle">10,00</td>
-            <td class="v-align-middle">
-              <button class="btn btn-primary btn-sm"
-                data-bs-toggle="modal"
-                data-bs-target="#itensModal"
-              >
+  <app-card HFF justifyHeaderContent='between' noFooter>
+    <span title>Itens</span>
+    <button header-after class="btn btn-primary btn-sm" data-bs-toggle="modal"
+      data-bs-target="#addItemModal"
+    ><i class="bi bi-plus-lg"></i></button>
+    
+    <table body class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Serviço</th>
+          <th scope="col">Quantidade</th>
+          <th scope="col">Valor unitário</th>
+          <th scope="col">Valor total</th>
+          <th scope="col">Itens</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="v-align-middle">1</th>
+          <td class="v-align-middle">Serviço 1</td>
+          <td class="v-align-middle">1</td>
+          <td class="v-align-middle">10,00</td>
+          <td class="v-align-middle">10,00</td>
+          <td class="v-align-middle">
+            <button class="btn btn-primary btn-sm"
+              data-bs-toggle="modal"
+              data-bs-target="#itensModal"
+            >
               <i class="bi bi-search"></i>
-              </button>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="4">Total</td>
-            <td>R$ 0,00</td>
-          </tr>
-      </table>
-    </div>
-  </div>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4"><strong>Total</strong></td>
+          <td>R$ 0,00</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+  </app-card>
 </div>
 
 <!-- Show item modal -->

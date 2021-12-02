@@ -1,29 +1,27 @@
-<div class="card mt-2">
-  <header class="card-header">
-    <h5 class="card-title">Projetos</h5>
-  </header>
+<app-card HFF noFooter>
+  <span title>Projetos</span>
+  
+  <table body class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="col-sm-3">#</th>
+        <th scope="col">Projeto</th>
+        <th scope="col">Valor Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Projeto 1</td>
+        <td>10,00</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2"><strong>Total</strong></td>
+        <td>10,00</td>
+      </tr>
+    </tfoot>
+  </table>
 
-  <div class="card-body">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col" class="col-sm-3">#</th>
-          <th scope="col">Projeto</th>
-          <th scope="col">Valor Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Projeto 1</td>
-          <td>10,00</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="2">Total</td>
-          <td>10,00</td>
-        </tr>
-    </table>
-  </div>
-</div>
+</app-card>
