@@ -1,0 +1,72 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Início</a></li>
+    <li class="breadcrumb-item"><a href="index.html">Contratos</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Cadastrar</li>
+  </ol>
+</nav>
+
+<main class="card mt-3">
+  <header class="card-header">
+    <h5 class="card-title">Cadastro de Contrato</h5>
+  </header>
+  <div class="card-body pb-2">
+    <!-- Tab headers -->
+    <ul class="nav nav-tabs" id="cadastroTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="geral-tab" data-bs-toggle="tab"
+          data-bs-target="#geral" type="button" role="tab" aria-controls="geral"
+          aria-selected="true"
+        >Geral</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="itens-tab" data-bs-toggle="tab"
+          data-bs-target="#itens" type="button" role="tab" 
+          aria-controls="itens" aria-selected="false"
+        >Itens</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="projetos-tab" data-bs-toggle="tab"
+          data-bs-target="#projetos" type="button" role="tab" 
+          aria-controls="projetos" aria-selected="false"
+        >Projetos</button>
+      </li>
+    </ul>
+    <!-- // Tab headers -->
+    
+    <div class="tab-content">
+      <!-- Geral -->
+      <div class="tab-pane show active" id="geral" role="tabpanel"
+        aria-labelledby="geral-tab"
+      >
+        <app-geral-tab></app-geral-tab>
+      </div>
+      <!-- // Geral -->
+
+      <!-- Itens -->
+      <div class="tab-pane" id="itens" role="tabpanel"
+        aria-labelledby="itens-tab"
+      >
+        <app-itens-tab></app-itens-tab>        
+      </div>
+      <!-- // Itens -->
+
+      <!-- Projetos -->
+      <div class="tab-pane" id="projetos" role="tabpanel"
+        aria-labelledby="projetos-tab"
+      >
+        <app-projetos-tab></app-projetos-tab>
+      </div>
+      <!-- // Projetos -->
+    
+    </div>
+  </div>
+  <div class="card-footer mx-3 mb-3">
+    <div class="d-flex justify-content-end">
+      <div class="btn-group gap-1" role="group" aria-label="Basic example">
+        <button type="submit" class="btn btn-secondary">voltar</button>
+        <button type="submit" class="btn btn-primary">enviar</button>
+      </div>
+    </div>
+  </div>
+</main>
