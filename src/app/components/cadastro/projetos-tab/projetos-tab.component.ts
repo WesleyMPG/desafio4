@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Projeto } from '../../../models/projeto.model';
+import { ProjetosService } from '../../../services/projetos.service';
 
-
-const projetos = [
-  {
-    nome: 'Projeto 1',
-    valorTotal: 10
-  },
- 
-]
 
 @Component({
   selector: 'app-projetos-tab',
@@ -16,12 +10,16 @@ const projetos = [
 })
 export class ProjetosTabComponent implements OnInit {
 
-  tableColumns = ['Projeto', 'Valor Total']
-  projects = projetos;
+  tableColumns = ['Projeto', 'Orçamento', 'Orçamento restante',
+                  'Orçamento usado'];
+  projects!: Projeto[];
 
-  constructor() { }
+  constructor(private projetoService: ProjetosService) { }
 
   ngOnInit(): void {
+    this.projetoService.getAll().subscribe(projetos => {
+      this.projects = projetos;
+    })
   }
 
 }
