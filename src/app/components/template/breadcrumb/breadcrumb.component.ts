@@ -1,6 +1,6 @@
 import { TemplateService } from './../../../services/template.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { PathItem } from './breadcrumb-data.model';
+import { PathItem } from '../../../models/breadcrumb-data.model';
 
 
 @Component({

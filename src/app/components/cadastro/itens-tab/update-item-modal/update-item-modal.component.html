@@ -1,0 +1,32 @@
+<app-modal closeBtnStyle closeBtnText="Cancelar" modalSize="lg" [onClose]="clearFields">
+  <span title>Editar item</span>
+    <form body class="p-1" [formGroup]="form">
+      <div class="row">
+        <div class="col-sm-4">
+          <label for="modal-service" class="form-label">
+            Serviço
+          </label>
+          <input type="text" formControlName="service" class="form-control disabled"
+          id="modal-service">
+        </div>
+        <div class="col-sm-4">
+          <label for="modal-qtd" class="form-label">
+            Quantidade
+          </label>
+          <input type="number" min="1" formControlName="qtd" class="form-control disabled"
+          id="modal-qtd">
+        </div>
+        <div class="col-sm-4">
+          <label for="modal-val" class="form-label">
+            Valor unitário
+          </label>
+          <input type="number" formControlName="val" class="form-control disabled"
+          id="modal-val">
+        </div>
+      </div>
+      <p class="pt-1" *ngIf="!form.valid">Algumas das entradas estão inválidas.</p>
+    </form>
+  <button footer-after type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+    (click)="updateItem()" [disabled]="!form.valid"
+  >Editar</button>
+</app-modal>

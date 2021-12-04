@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/template/header/header.component';
@@ -16,6 +19,9 @@ import { CardComponent } from './components/card/card.component';
 import { HeaderFooterFormaterDirective } from './components/card/header-footer-formater.directive';
 import { BreadcrumbComponent } from './components/template/breadcrumb/breadcrumb.component';
 import { ListagemComponent } from './components/views/listagem/listagem.component';
+import { AddItemModalComponent } from './components/cadastro/itens-tab/add-item-modal/add-item-modal.component';
+import { UpdateItemModalComponent } from './components/cadastro/itens-tab/update-item-modal/update-item-modal.component';
+import { DeleteItemModalComponent } from './components/cadastro/itens-tab/delete-item-modal/delete-item-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +39,15 @@ import { ListagemComponent } from './components/views/listagem/listagem.componen
     HeaderFooterFormaterDirective,
     BreadcrumbComponent,
     ListagemComponent,
+    AddItemModalComponent,
+    UpdateItemModalComponent,
+    DeleteItemModalComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,8 +6,10 @@
     height: 20vh;
 }
 
-
 .v-align-middle {
     vertical-align: middle;
 }
 
+input.ng-invalid.ng-touched {
+  border-color: red;
+}

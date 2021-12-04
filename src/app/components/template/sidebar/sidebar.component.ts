@@ -1,4 +1,4 @@
-import { SidebarData } from './sidebar-data.model';
+import { SidebarData } from '../../../models/sidebar-data.model';
 import { TemplateService } from './../../../services/template.service';
 import { Component, OnInit, ViewChild, 
          ViewChildren ,ElementRef, QueryList } from '@angular/core';

@@ -1,0 +1,29 @@
+<app-modal closeBtnStyle closeBtnText="Cancelar" modalSize="md">
+  <span title>Deletar item</span>
+
+  <div body class="p-3">
+    <dl class="row justify-content-between">
+      <dt class="col-sm-5">Serviço</dt>
+      <dd class="col-sm-3">{{ item.servico }}</dd>
+    </dl>
+
+    <dl class="row justify-content-between">
+      <dt class="col-sm-5">Quantidade</dt>
+      <dd class="col-sm-3">{{ item.quantidade }}</dd>
+    </dl>
+
+    <dl class="row justify-content-between">
+      <dt class="col-sm-5">Valor unitário</dt>
+      <dd class="col-sm-3">{{ item.valor }}</dd>
+    </dl>
+
+    <dl class="row justify-content-between">
+      <dt class="col-sm-5">Valor total</dt>
+      <dd class="col-sm-3">{{ totalValue }}</dd>
+    </dl>
+  </div>
+
+  <button footer-after type="button" class="btn btn-danger" data-bs-dismiss="modal"
+    (click)="deleteItem()"
+  >Deletar</button>
+</app-modal>

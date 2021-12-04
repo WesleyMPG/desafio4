@@ -1,13 +1,7 @@
+import { Item } from './../../../models/item.model';
+import { ItensService } from './../../../services/itens.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-const itens = [
-  {
-    servico: "Serviço 1",
-    quantidade: 1,
-    valor: 10,
-    valorTotal: 10,
-  }
-];
 
 @Component({
   selector: 'app-itens-tab',
@@ -17,16 +11,29 @@ const itens = [
 export class ItensTabComponent implements OnInit {
 
   tableColumns = ['Serviço', 'Quantidade', 'Valor unitário',
-                  'Valor Total', 'Itens'];
-  items = itens;
+                  'Valor Total', 'Editar'];
+  items!: Item[];
   totalValue = 0;
 
-  constructor() { }
+  constructor(private itensService: ItensService) { }
 
   ngOnInit(): void {
-    this.items.forEach((i) => {
-      this.totalValue += i.valor;
+    this.loadItems()
+  }
+
+  set selectedItem(i: Item) {
+    this.itensService.selectedItem = i;
+  }
+
+  loadItems = () => {
+    this.itensService.getAll().subscribe(itens => {
+      this.totalValue = 0;
+      this.items = itens;
+      this.items.forEach((i) => {
+        this.totalValue += i.valor * i.quantidade;
+      });
     });
   }
+
 
 }

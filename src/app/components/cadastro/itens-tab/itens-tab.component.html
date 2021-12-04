@@ -6,7 +6,7 @@
     <button header-after class="btn btn-primary btn-sm" data-bs-toggle="modal"
       data-bs-target="#addItemModal"
     ><i class="bi bi-plus-lg"></i></button>
-    
+
     <table body class="table">
       <thead>
         <tr>
@@ -20,15 +20,17 @@
           <td scope="row" class="v-align-middle">{{ item.servico }}</td>
           <td scope="row" class="v-align-middle">{{ item.quantidade }}</td>
           <td scope="row" class="v-align-middle">{{ item.valor }}</td>
-          <td scope="row" class="v-align-middle">{{ item.valorTotal }}</td>
+          <td scope="row" class="v-align-middle">{{ item.valor * item.quantidade }}</td>
 
           <td class="v-align-middle">
-            <button class="btn btn-primary btn-sm"
-              data-bs-toggle="modal"
-              data-bs-target="#itensModal"
-            >
-              <i class="bi bi-search"></i>
-            </button>
+            <a class="edit" data-bs-toggle="modal" data-bs-target="#updateItemModal"
+            (click)="selectedItem = item">
+              <i class="bi bi-pencil-fill"></i>
+            </a>
+            <a class="delete" data-bs-toggle="modal" data-bs-target="#deleteItemModal"
+            (click)="selectedItem = item">
+              <i class="bi bi-trash-fill"></i>
+            </a>
           </td>
         </tr>
       </tbody>
@@ -43,7 +45,7 @@
   </app-card>
 </div>
 
-<!-- Show item modal -->
+<!-- Show item modal
 <app-modal id="itensModal" aria-labelledby="itensModalLabel" aria-hidden="true">
   <span title>Visualizar item</span>
 
@@ -54,44 +56,18 @@
     <dd class="col-sm-3">Projeto 1</dd>
   </dl>
 </app-modal>
+-->
 <!-- //Show item modal -->
+<app-delete-item-modal id="deleteItemModal" class="modal fade" [parentUpdate]="loadItems"
+  aria-labelledby="UpdateItensModalLabel" aria-hidden="true">
+</app-delete-item-modal>
 
- <!-- Add item modal-->
-<app-modal closeBtnSecondary modalSize="lg" id="addItemModal" 
-  aria-labelledby="itensModalLabel" aria-hidden="true"
->
-  <span title>Adicionar item</span>
-    <form body class="p-1">
-      <div class="row">
-        <div class="col-sm-4">
-          <label for="modal-prestador" class="form-label">
-            Prestador (razão social)
-          </label>
-          <input type="text" 
-          class="form-control disabled"
-          id="modal-prestador"
-          >
-        </div> 
-        <div class="col-sm-4">
-          <label for="modal-ordem" class="form-label">
-            Ordem
-          </label>
-          <input type="text" 
-          class="form-control disabled"
-          id="modal-ordem"
-          >
-        </div> 
-        <div class="col-sm-4">
-          <label for="modal-item-ordem" class="form-label">
-            Item Ordem
-          </label>
-          <input type="text" 
-            class="form-control disabled"
-            id="modal-item-ordem"
-          >
-        </div> 
-      </div> 
-    </form>
-  <button footer-after type="button" class="btn btn-primary">Adicionar</button>
-</app-modal>
- <!-- // Add item modal-->
+
+<app-update-item-modal id="updateItemModal" class="modal fade" [parentUpdate]="loadItems"
+  aria-labelledby="UpdateItensModalLabel" aria-hidden="true">
+</app-update-item-modal>
+
+
+<app-add-item-modal id="addItemModal" class="modal fade" [parentUpdate]="loadItems"
+  aria-labelledby="AddItensModalLabel" aria-hidden="true"
+></app-add-item-modal>

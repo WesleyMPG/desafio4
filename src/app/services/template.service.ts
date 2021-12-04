@@ -1,7 +1,7 @@
-import { SidebarData } from './../components/template/sidebar/sidebar-data.model';
+import { SidebarData } from '../models/sidebar-data.model';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { BreadcrumbData, PathItem } from '../components/template/breadcrumb/breadcrumb-data.model';
+import { BreadcrumbData, PathItem } from '../models/breadcrumb-data.model';
 
 @Injectable({
   providedIn: 'root'
