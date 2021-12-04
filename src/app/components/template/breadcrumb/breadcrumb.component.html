@@ -1,0 +1,12 @@
+<nav aria-label="breadcrumb">
+  <ol #list class="breadcrumb">
+    <ng-container *ngFor="let item of path; let i = index">
+      <li *ngIf="i != path.length-1" class="breadcrumb-item" >
+        <a routerLink="{{item.link}}">{{ item.name }}</a>
+      </li>
+    </ng-container>
+    <li class="breadcrumb-item" >
+      {{ path[path.length-1].name }}
+    </li>
+  </ol>
+</nav>

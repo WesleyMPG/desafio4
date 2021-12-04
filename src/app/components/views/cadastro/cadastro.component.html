@@ -1,10 +1,4 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.html">Início</a></li>
-    <li class="breadcrumb-item"><a href="index.html">Contratos</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Cadastrar</li>
-  </ol>
-</nav>
+<app-breadcrumb></app-breadcrumb>
 
 <main>
   <app-card HFF justifyFooterContent="end">
@@ -21,19 +15,19 @@
         </li>
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="itens-tab" data-bs-toggle="tab"
-            data-bs-target="#itens" type="button" role="tab" 
+            data-bs-target="#itens" type="button" role="tab"
             aria-controls="itens" aria-selected="false"
           >Itens</button>
         </li>
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="projetos-tab" data-bs-toggle="tab"
-            data-bs-target="#projetos" type="button" role="tab" 
+            data-bs-target="#projetos" type="button" role="tab"
             aria-controls="projetos" aria-selected="false"
           >Projetos</button>
         </li>
       </ul>
       <!-- // Tab headers -->
-      
+
       <div class="tab-content">
         <!-- Geral -->
         <div class="tab-pane show active" id="geral" role="tabpanel"
@@ -47,7 +41,7 @@
         <div class="tab-pane" id="itens" role="tabpanel"
           aria-labelledby="itens-tab"
         >
-          <app-itens-tab></app-itens-tab>        
+          <app-itens-tab></app-itens-tab>
         </div>
         <!-- // Itens -->
 
@@ -58,7 +52,7 @@
           <app-projetos-tab></app-projetos-tab>
         </div>
         <!-- // Projetos -->
-      
+
       </div>
     </div>
 

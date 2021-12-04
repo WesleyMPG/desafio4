@@ -3,25 +3,26 @@
     <ul class="nav flex-column">
       <div class="sidebar-heading">SUPRIMENTOS</div>
       <li class="nav-item">
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="accordionContratos">
           <div class="accordion-item rounded-0">
             <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button collapsed" type="button" 
-                data-bs-toggle="collapse" data-bs-target="#collapseOne" 
+              <button #collapseBtn class="accordion-button {{collapsed}}" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseOne"
                 aria-expanded="false" aria-controls="collapseOne"
               >
                 Contratos
               </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse"
-              aria-labelledby="headingOne" data-bs-parent="#accordionExample"
+            <div #collapseView id="collapseOne" class="accordion-collapse collapse {{show}}"
+              aria-labelledby="headingOne" data-bs-parent="#accordionContratos"
             >
               <div class="list-group p-1 rounded-0">
-                <a routerLink="/cadastro" 
+                <a #item routerLink="/cadastro" 
                   class="list-group-item list-group-item-action">
                   Cadastrar
                 </a>
-                <a routerLink="/listagem" class="list-group-item list-group-item-action">
+                <a #item routerLink="/listagem" 
+                  class="list-group-item list-group-item-action">
                   Listar
                 </a>
               </div>

@@ -14,6 +14,7 @@ import { CloseBtnStyleDirective } from './components/modal/close-btn-style.direc
 import { ModalSizeDirective } from './components/modal/modal-size.directive';
 import { CardComponent } from './components/card/card.component';
 import { HeaderFooterFormaterDirective } from './components/card/header-footer-formater.directive';
+import { BreadcrumbComponent } from './components/template/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HeaderFooterFormaterDirective } from './components/card/header-footer-f
     ModalSizeDirective,
     CardComponent,
     HeaderFooterFormaterDirective,
+    BreadcrumbComponent,
   ],
   imports: [
     BrowserModule,

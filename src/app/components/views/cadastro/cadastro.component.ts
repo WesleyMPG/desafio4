@@ -1,3 +1,4 @@
+import { TemplateService } from './../../../services/template.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor() { }
+  constructor(private templateService: TemplateService) {
+    templateService.sidebarData = {
+      collapsed: false,
+      selectedItem: 0,
+    };
+    templateService.breadcrumbPath = [{
+      name: "Cadastro",
+      link: '/cadastro',
+    }];
+  }
 
   ngOnInit(): void {
   }
