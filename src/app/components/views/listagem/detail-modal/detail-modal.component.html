@@ -1,0 +1,29 @@
+<app-modal closeBtnStyle closeBtnText="Cancelar" modalSize="md">
+  <span title>Deletar contrato</span>
+
+  <div body class="p-3">
+    <dl class="row justify-content-around">
+      <dt class="col-sm-5">Número</dt>
+      <dd class="col-sm-3">{{ contract.numero }}</dd>
+    </dl>
+
+    <dl class="row justify-content-around">
+      <dt class="col-sm-5">Prestador</dt>
+      <dd class="col-sm-3">{{ contract.prestador }}</dd>
+    </dl>
+
+    <dl class="row justify-content-around">
+      <dt class="col-sm-5">Início</dt>
+      <dd class="col-sm-3">{{ contract.inicioVigencia | date: 'dd/MM/yy' }}</dd>
+    </dl>
+
+    <dl class="row justify-content-around">
+      <dt class="col-sm-5">Término</dt>
+      <dd class="col-sm-3">{{ contract.fimVigencia | date: 'dd/MM/yy' }}</dd>
+    </dl>
+  </div>
+
+  <button footer-after type="button" class="btn btn-danger" data-bs-dismiss="modal"
+    (click)="deleteContract()"
+  >Deletar</button>
+</app-modal>

@@ -11,8 +11,9 @@ import { Item } from '../../../../models/item.model';
 export class UpdateItemModalComponent implements OnInit {
 
   @Input() parentUpdate!: Function;
-  @Input() private item!: Item;
+  @Input() mode!: 'buffer' | 'noBuffer';
 
+  private item!: Item;
   form!: FormGroup;
 
   constructor(private itensService: ItensService) {
@@ -38,9 +39,7 @@ export class UpdateItemModalComponent implements OnInit {
         quantidade: fields.qtd,
         valor: fields.val,
       }
-      this.itensService.update(item).subscribe(i => {
-        if (this.parentUpdate) this.parentUpdate();
-      });
+      this._update(item);
     }
   }
 
@@ -51,5 +50,16 @@ export class UpdateItemModalComponent implements OnInit {
     }
   }
 
+  private _update(item: Item) {
+    if (this.mode == 'buffer') {
+      let i = this.itensService.itensToCreate.indexOf(this.item);
+      this.itensService.itensToCreate[i] = item;
+      if (this.parentUpdate) this.parentUpdate();
+    } else {
+      this.itensService.update(item).subscribe(i => {
+        if (this.parentUpdate) this.parentUpdate();
+      });
+    }
+  }
 
 }

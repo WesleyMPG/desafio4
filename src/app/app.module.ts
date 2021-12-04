@@ -22,6 +22,8 @@ import { ListagemComponent } from './components/views/listagem/listagem.componen
 import { AddItemModalComponent } from './components/cadastro/itens-tab/add-item-modal/add-item-modal.component';
 import { UpdateItemModalComponent } from './components/cadastro/itens-tab/update-item-modal/update-item-modal.component';
 import { DeleteItemModalComponent } from './components/cadastro/itens-tab/delete-item-modal/delete-item-modal.component';
+import { ContratoItensComponent } from './components/views/contrato-itens/contrato-itens.component';
+import { DetailModalComponent } from './components/views/listagem/detail-modal/detail-modal.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { DeleteItemModalComponent } from './components/cadastro/itens-tab/delete
     AddItemModalComponent,
     UpdateItemModalComponent,
     DeleteItemModalComponent,
+    ContratoItensComponent,
+    DetailModalComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,9 @@
 <app-breadcrumb></app-breadcrumb>
 
 <main>
-  <app-card HFF justifyHeaderContent="between" noFooter>
+  <app-card HFF justifyHeaderContent="start" noFooter>
     <span title>Contratos</span>
-    <button header-after class="btn btn-primary btn-sm"
-      data-bs-toggle="modal" data-bs-target="#addItemModal"
-    >
-      <i class="bi bi-plus-lg"></i>
-    </button>
-    
+
     <table body class="table">
       <thead>
         <tr>
@@ -18,14 +13,31 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of contracts; let i = index;">
-          <th scope="row" class="v-align-middle">{{ i }}</th>
+          <th scope="row" class="v-align-middle">{{ i+1 }}</th>
           <td scope="row" class="v-align-middle">{{ item.numero }}</td>
           <td scope="row" class="v-align-middle">{{ item.prestador }}</td>
-          <td scope="row" class="v-align-middle">{{ item.valor }}</td>
-          <td scope="row" class="v-align-middle">{{ item.inicioVigencia }}</td>
-          <td scope="row" class="v-align-middle">{{ item.fimVigencia }}</td>
+          <!-- td scope="row" class="v-align-middle">{{ item.valor }}</td -->
+          <td scope="row" class="v-align-middle">
+            {{ item.inicioVigencia | date: 'dd/MM/yy' }}
+          </td>
+          <td scope="row" class="v-align-middle">
+            {{ item.fimVigencia | date: 'dd/MM/yy' }}
+          </td>
+          <td class="v-align-middle">
+            <a class="edit" routerLink='/contrato/itens' (click)="selectedContract = item">
+              <i class="bi bi-search"></i>
+            </a>
+            <a class="delete" data-bs-toggle="modal" data-bs-target="#deleteContractModal"
+            (click)="selectedContract = item">
+              <i class="bi bi-trash-fill"></i>
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>
   </app-card>
 </main>
+
+<app-detail-modal id="deleteContractModal" class="modal fade" [parentUpdate]="loadContracts"
+  aria-labelledby="UpdateItensModalLabel" aria-hidden="true">
+</app-detail-modal>

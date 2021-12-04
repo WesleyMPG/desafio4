@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ItensService } from '../../../../services/itens.service';
+import { ContratosService } from '../../../../services/contratos.service';
+import { Item } from '../../../../models/item.model';
 
 @Component({
   selector: 'app-add-item-modal',
@@ -10,10 +12,12 @@ import { ItensService } from '../../../../services/itens.service';
 export class AddItemModalComponent implements OnInit {
 
   @Input() parentUpdate!: Function;
+  @Input() mode!: 'buffer' | 'noBuffer';
 
   form!: FormGroup;
 
-  constructor(private itensService: ItensService) { }
+  constructor(private itensService: ItensService,
+              private contratosService: ContratosService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -25,15 +29,13 @@ export class AddItemModalComponent implements OnInit {
 
   createItem() {
     if (this.form.valid) {
-      const fields = this.form.value;
+      const {service, qtd, val} = this.form.value;
       const item = {
-        servico: fields.service,
-        quantidade: fields.qtd,
-        valor: fields.val,
+        servico: service,
+        quantidade: qtd,
+        valor: val,
       }
-      this.itensService.create(item).subscribe(i => {
-        if (this.parentUpdate) this.parentUpdate();
-      });
+      this._create(item);
       this.clearFields();
     }
   }
@@ -42,4 +44,15 @@ export class AddItemModalComponent implements OnInit {
     this.form.setValue({service: '', qtd: 1, val: 1});
   }
 
+  private _create(item: Item) {
+    if (this.mode == 'buffer') {
+      this.itensService.itensToCreate.push(item);
+      if (this.parentUpdate) this.parentUpdate();
+    } else {
+      item.contrato_id = this.contratosService.selectedContract.id;
+      this.itensService.create(item).subscribe(i => {
+        if (this.parentUpdate) this.parentUpdate();
+      });
+    }
+  }
 }

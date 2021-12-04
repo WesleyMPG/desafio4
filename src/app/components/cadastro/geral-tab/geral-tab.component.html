@@ -1,18 +1,22 @@
-<form class="mt-3">
+<form class="mt-3" [formGroup]="form">
   <div class="row g-3">
     <div class="col">
       <label for="numero" class="form-label">Número (nnn/aaaa)</label>
-      <input type="text" readonly class="form-control disabled" id="numero" disabled>
+      <input type="text" class="form-control" id="numero" formControlName="numero">
     </div>
     <div class="col">
       <label for="prestador" class="form-label">
         Prestador (razão social)
       </label>
-      <input type="text" readonly class="form-control disabled" id="prestador" disabled>
+      <input type="text" class="form-control" id="prestador" formControlName="prestador">
     </div>
     <div class="col">
-      <label for="valor" class="form-label">Valor</label>
-      <input type="number" readonly class="form-control disabled" id="valor" disabled>
+      <label for="projeto" class="form-label">projeto</label>
+      <select class="form-select " id="projeto" formControlName="projeto_id" ngValue="---">
+          <option *ngFor="let p of validProjects;" [ngValue]="p.id">
+            {{p.nome}}
+          </option>
+      </select>
     </div>
   </div>
 
@@ -21,8 +25,8 @@
       <label for="inicio_vigencia" class="form-label">
         Inicio da vigência
       </label>
-      <input type="date" class="form-control" 
-        id="inicio_vigencia"
+      <input type="date" class="form-control"
+        id="inicio_vigencia" formControlName="inicioVigencia"
       >
     </div>
     <div class="col">
@@ -30,7 +34,7 @@
         Termino da vigência
       </label>
       <input type="date" class="form-control"
-        id="termino_vigencia"
+        id="termino_vigencia" formControlName="fimVigencia"
       >
     </div>
   </div>
@@ -40,9 +44,7 @@
       <label for="objeto" class="form-label">
         Objeto
       </label>
-      <textarea class="form-control" 
-        id="objeto"
-      ></textarea>
+      <textarea class="form-control" id="objeto" formControlName="objeto"></textarea>
     </div>
-  </div>  
+  </div>
 </form>

@@ -33,7 +33,7 @@
         <div class="tab-pane show active" id="geral" role="tabpanel"
           aria-labelledby="geral-tab"
         >
-          <app-geral-tab></app-geral-tab>
+          <app-geral-tab [form]="geralForm" ></app-geral-tab>
         </div>
         <!-- // Geral -->
 
@@ -41,7 +41,7 @@
         <div class="tab-pane" id="itens" role="tabpanel"
           aria-labelledby="itens-tab"
         >
-          <app-itens-tab></app-itens-tab>
+          <app-itens-tab mode='buffer' ></app-itens-tab>
         </div>
         <!-- // Itens -->
 
@@ -57,8 +57,12 @@
     </div>
 
     <div footer class="btn-group gap-1" role="group" aria-label="Basic example">
-      <button type="submit" class="btn btn-secondary">voltar</button>
-      <button type="submit" class="btn btn-primary">enviar</button>
+      <a routerLink="/listagem" class="btn btn-secondary">voltar</a>
+
+      <button type="submit" class="btn btn-primary" (click)="submit()"
+      [disabled]="!geralForm.valid" routerLink="/listagem" >
+        enviar
+      </button>
     </div>
   </app-card>
 </main>

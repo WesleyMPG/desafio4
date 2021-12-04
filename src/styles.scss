@@ -13,3 +13,24 @@
 input.ng-invalid.ng-touched {
   border-color: red;
 }
+
+a:hover {
+  cursor: pointer;
+}
+
+.edit {
+  color: #2518FF;
+
+  :hover {
+    color: #928CEF;
+  }
+}
+
+.delete {
+  margin-left: 6px;
+  color: #FF0B00;
+
+  :hover {
+    color: #FF6B64;
+  }
+}

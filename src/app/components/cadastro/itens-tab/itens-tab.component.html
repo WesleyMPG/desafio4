@@ -1,73 +1,59 @@
-<div class="tab-pane" id="itens" role="tabpanel"
-  aria-labelledby="itens-tab"
->
-  <app-card HFF justifyHeaderContent='between' noFooter>
-    <span title>Itens</span>
-    <button header-after class="btn btn-primary btn-sm" data-bs-toggle="modal"
-      data-bs-target="#addItemModal"
-    ><i class="bi bi-plus-lg"></i></button>
+<app-card HFF justifyHeaderContent='between' noFooter>
+  <span title>Itens</span>
+  <button header-after class="btn btn-primary btn-sm" data-bs-toggle="modal"
+    data-bs-target="#addItemModal"
+  ><i class="bi bi-plus-lg"></i></button>
 
-    <table body class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col" *ngFor="let col of tableColumns">{{ col }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of items; let i = index;">
-          <th scope="row" class="v-align-middle">{{ i }}</th>
-          <td scope="row" class="v-align-middle">{{ item.servico }}</td>
-          <td scope="row" class="v-align-middle">{{ item.quantidade }}</td>
-          <td scope="row" class="v-align-middle">{{ item.valor }}</td>
-          <td scope="row" class="v-align-middle">{{ item.valor * item.quantidade }}</td>
+  <table body class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" *ngFor="let col of tableColumns">{{ col }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items; let i = index;">
+        <th scope="row" class="v-align-middle">{{ i+1 }}</th>
+        <td scope="row" class="v-align-middle">{{ item.servico }}</td>
+        <td scope="row" class="v-align-middle">{{ item.quantidade }}</td>
+        <td scope="row" class="v-align-middle">{{ item.valor | currency:'BRL'}}</td>
+        <td scope="row" class="v-align-middle">
+          {{ item.valor * item.quantidade | currency:'BRL'}}
+        </td>
 
-          <td class="v-align-middle">
-            <a class="edit" data-bs-toggle="modal" data-bs-target="#updateItemModal"
-            (click)="selectedItem = item">
-              <i class="bi bi-pencil-fill"></i>
-            </a>
-            <a class="delete" data-bs-toggle="modal" data-bs-target="#deleteItemModal"
-            (click)="selectedItem = item">
-              <i class="bi bi-trash-fill"></i>
-            </a>
-          </td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="4"><strong>Total</strong></td>
-          <td>{{ totalValue }}</td>
-          <td></td>
-        </tr>
-      </tfoot>
-    </table>
-  </app-card>
-</div>
+        <td class="v-align-middle">
+          <a class="edit" data-bs-toggle="modal" data-bs-target="#updateItemModal"
+          (click)="selectedItem = item">
+            <i class="bi bi-pencil-fill"></i>
+          </a>
+          <a class="delete" data-bs-toggle="modal" data-bs-target="#deleteItemModal"
+          (click)="selectedItem = item">
+            <i class="bi bi-trash-fill"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4"><strong>Total</strong></td>
+        <td>{{ totalValue | currency:'BRL' }}</td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+</app-card>
 
-<!-- Show item modal
-<app-modal id="itensModal" aria-labelledby="itensModalLabel" aria-hidden="true">
-  <span title>Visualizar item</span>
 
-  <dl body class="row">
-    <dt class="col-sm-5">Número da ordem</dt>
-    <dd class="col-sm-3">123456</dd>
-    <dt class="col-sm-5">Projeto</dt>
-    <dd class="col-sm-3">Projeto 1</dd>
-  </dl>
-</app-modal>
--->
-<!-- //Show item modal -->
 <app-delete-item-modal id="deleteItemModal" class="modal fade" [parentUpdate]="loadItems"
-  aria-labelledby="UpdateItensModalLabel" aria-hidden="true">
+  aria-labelledby="UpdateItensModalLabel" aria-hidden="true" [mode]="mode">
 </app-delete-item-modal>
 
 
 <app-update-item-modal id="updateItemModal" class="modal fade" [parentUpdate]="loadItems"
-  aria-labelledby="UpdateItensModalLabel" aria-hidden="true">
+  aria-labelledby="UpdateItensModalLabel" aria-hidden="true" [mode]="mode">
 </app-update-item-modal>
 
 
 <app-add-item-modal id="addItemModal" class="modal fade" [parentUpdate]="loadItems"
-  aria-labelledby="AddItensModalLabel" aria-hidden="true"
-></app-add-item-modal>
+  aria-labelledby="AddItensModalLabel" aria-hidden="true" [mode]="mode">
+</app-add-item-modal>

@@ -12,9 +12,9 @@
       <tr *ngFor="let p of projects; let i = index;">
         <th scope="row">{{ i }}</th>
         <td>{{ p.nome }}</td>
-        <td>{{ p.orcamento }}</td>
-        <td>{{ p.orcRestante }}</td>
-        <td>{{ p.orcamento - p.orcRestante }}</td>
+        <td>{{ p.orcamento | currency:'BRL' }}</td>
+        <td>{{ p.orcRestante | currency:'BRL' }}</td>
+        <td>{{ p.orcamento - p.orcRestante | currency:'BRL' }}</td>
       </tr>
     </tbody>
     <tfoot>

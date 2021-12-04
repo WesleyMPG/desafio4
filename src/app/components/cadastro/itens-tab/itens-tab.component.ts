@@ -1,6 +1,7 @@
 import { Item } from './../../../models/item.model';
 import { ItensService } from './../../../services/itens.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ContratosService } from './../../../services/contratos.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 
 @Component({
@@ -10,12 +11,15 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class ItensTabComponent implements OnInit {
 
+  @Input() mode!: 'buffer' | 'noBuffer';
+
   tableColumns = ['Serviço', 'Quantidade', 'Valor unitário',
                   'Valor Total', 'Editar'];
   items!: Item[];
   totalValue = 0;
 
-  constructor(private itensService: ItensService) { }
+  constructor(private itensService: ItensService,
+              private contratosService: ContratosService) { }
 
   ngOnInit(): void {
     this.loadItems()
@@ -26,14 +30,29 @@ export class ItensTabComponent implements OnInit {
   }
 
   loadItems = () => {
-    this.itensService.getAll().subscribe(itens => {
-      this.totalValue = 0;
+    this.totalValue = 0;
+    if (this.mode == 'buffer') {
+      this._loadBuffer();
+    } else {
+      this._loadServer()
+    }
+  }
+
+  private _loadBuffer() {
+    this.items = this.itensService.itensToCreate;
+    this.items.forEach((i) => {
+      this.totalValue += i.valor * i.quantidade;
+    });
+  }
+
+  private _loadServer() {
+    const id = <number>this.contratosService.selectedContract.id;
+    this.itensService.getContractItems(id).subscribe(itens => {
       this.items = itens;
       this.items.forEach((i) => {
         this.totalValue += i.valor * i.quantidade;
       });
     });
   }
-
 
 }

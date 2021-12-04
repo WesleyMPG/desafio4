@@ -1,15 +1,9 @@
-import { TemplateService } from './../../../services/template.service';
 import { Component, OnInit } from '@angular/core';
+import { TemplateService } from './../../../services/template.service';
+import { ContratosService } from './../../../services/contratos.service';
+import { ItensService } from './../../../services/itens.service';
+import { Contrato } from '../../../models/contrato.model';
 
-const contratos = [
-  {
-    numero: '012/2021',
-    prestador: '12345678901234',
-    valor: 175,
-    inicioVigencia: '2021-12-1T00:00',
-    fimVigencia: '2022-12-1T00:00',
-  }
-];
 
 @Component({
   selector: 'app-listagem',
@@ -18,10 +12,12 @@ const contratos = [
 })
 export class ListagemComponent implements OnInit {
 
-  tableColumns = ['Número', 'Prestador', 'Valor', 'Início', 'Término'];
-  contracts = contratos;
+  tableColumns = ['Número', 'Prestador', 'Início', 'Término', 'Ações'];
+  contracts!: Contrato[];
 
-  constructor(private templateService: TemplateService) {
+  constructor(private templateService: TemplateService,
+              private contratosService: ContratosService,
+              private itensService: ItensService) {
     templateService.sidebarData = {
       collapsed: false,
       selectedItem: 1,
@@ -33,6 +29,17 @@ export class ListagemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadContracts();
+  }
+
+  loadContracts = () => {
+    this.contratosService.getAll().subscribe(contratos => {
+      this.contracts = contratos;
+    })
+  }
+
+  set selectedContract(i: Contrato) {
+    this.contratosService.selectedContract = i;
   }
 
 }
