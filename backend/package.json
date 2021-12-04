@@ -1,0 +1,12 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Temporary backend for sumé",
+  "main": "index.js",
+  "author": "wesley silva",
+  "license": "MIT",
+  "scripts": {
+    "start": "json-server --watch db.json"
+  },
+  "dependencies": {}
+}

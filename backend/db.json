@@ -1,0 +1,78 @@
+{
+  "contratos": [
+    {
+      "numero": "123/2021",
+      "prestador": "1010001010",
+      "projeto_id": 2,
+      "inicioVigencia": "2021-11-04T00:00:00.000Z",
+      "fimVigencia": "2022-10-05T00:00:00.000Z",
+      "objeto": "objetos objeto",
+      "id": 1
+    },
+    {
+      "numero": "144/2021",
+      "prestador": "14778524522",
+      "projeto_id": 3,
+      "inicioVigencia": "2021-08-10T00:00:00.000Z",
+      "fimVigencia": "2022-03-22T00:00:00.000Z",
+      "objeto": "mais um objetivo",
+      "id": 2
+    }
+  ],
+  "itens": [
+    {
+      "servico": "serviço 3 ",
+      "quantidade": 2,
+      "valor": 53,
+      "contrato_id": 1,
+      "id": 1
+    },
+    {
+      "servico": "Serviço 2 ",
+      "quantidade": 3,
+      "valor": 10,
+      "contrato_id": 1,
+      "id": 2
+    },
+    {
+      "servico": "Serviço 1",
+      "quantidade": 6,
+      "valor": 63,
+      "contrato_id": 1,
+      "id": 3
+    },
+    {
+      "servico": "Serviço 4",
+      "quantidade": 2,
+      "valor": 237,
+      "contrato_id": 2,
+      "id": 4
+    }
+  ],
+  "projetos": [
+    {
+      "id": 1,
+      "nome": "projeto1",
+      "orcamento": 1000,
+      "orcRestante": 1000
+    },
+    {
+      "id": 2,
+      "nome": "projeto2",
+      "orcamento": 1000,
+      "orcRestante": 1000
+    },
+    {
+      "id": 3,
+      "nome": "projeto3",
+      "orcamento": 1000,
+      "orcRestante": 1000
+    },
+    {
+      "id": 4,
+      "nome": "projeto4",
+      "orcamento": 1000,
+      "orcRestante": 0
+    }
+  ]
+}

@@ -1,27 +1,11 @@
-# Sume
+# Sumé Software
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+O projeto é uma adaptação da atividade do primeiro módulo do curso.
 
-## Development server
+A ideia inicial era criar contratos vinculados a projetos de forma que o orçamento do projeto limitasse a valor dos itens que poderiam ser adicionados ao contrato. Os contratos são vinculados a um projeto, mas não existe a limitação do orçamento por não ser implementável em tempo hábil deste momento até entrega.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+São possíveis as operações de CRUD quanto aos contratos e os itens, sendo estes últimos parte dos contratos. No formulário do contrato itens podem ser adicionados, editados e removidos, mas eles apenas são registrados no banco de dados quando o formulário do contrato é enviado. Posteriormente é possível editar os contratos, juntamente de seus itens, na view da listagem.
 
-## Code scaffolding
+_OBS: A parte do backend feita com json server está na pasta backend._
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+_OBS2: Na branch original_project estão as views originais da atividade, implementadas com e como componentes do angular, mas sem nenhuma funcionalidade._
