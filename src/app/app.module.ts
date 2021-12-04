@@ -15,6 +15,7 @@ import { ModalSizeDirective } from './components/modal/modal-size.directive';
 import { CardComponent } from './components/card/card.component';
 import { HeaderFooterFormaterDirective } from './components/card/header-footer-formater.directive';
 import { BreadcrumbComponent } from './components/template/breadcrumb/breadcrumb.component';
+import { ListagemComponent } from './components/views/listagem/listagem.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { BreadcrumbComponent } from './components/template/breadcrumb/breadcrumb
     CardComponent,
     HeaderFooterFormaterDirective,
     BreadcrumbComponent,
+    ListagemComponent,
   ],
   imports: [
     BrowserModule,

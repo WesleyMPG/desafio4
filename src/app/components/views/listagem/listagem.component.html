@@ -1,0 +1,31 @@
+<app-breadcrumb></app-breadcrumb>
+
+<main>
+  <app-card HFF justifyHeaderContent="between" noFooter>
+    <span title>Contratos</span>
+    <button header-after class="btn btn-primary btn-sm"
+      data-bs-toggle="modal" data-bs-target="#addItemModal"
+    >
+      <i class="bi bi-plus-lg"></i>
+    </button>
+    
+    <table body class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col" *ngFor="let col of tableColumns">{{ col }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of contracts; let i = index;">
+          <th scope="row" class="v-align-middle">{{ i }}</th>
+          <td scope="row" class="v-align-middle">{{ item.numero }}</td>
+          <td scope="row" class="v-align-middle">{{ item.prestador }}</td>
+          <td scope="row" class="v-align-middle">{{ item.valor }}</td>
+          <td scope="row" class="v-align-middle">{{ item.inicioVigencia }}</td>
+          <td scope="row" class="v-align-middle">{{ item.fimVigencia }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </app-card>
+</main>
